@@ -79,6 +79,10 @@ module Postmark
     def text_body
       source["TextBody"]
     end
+    
+    def stripped_text_reply
+      source["StrippedTextReply"]
+    end
 
     def mailbox_hash
       source["MailboxHash"]
@@ -86,6 +90,10 @@ module Postmark
 
     def tag
       source["Tag"]
+    end
+    
+    def date
+      source["Date"]
     end
 
     def headers
