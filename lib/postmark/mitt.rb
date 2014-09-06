@@ -49,11 +49,11 @@ module Postmark
     end
 
     def bcc_email
-      source["BccFull"]["Email"] || bcc
+      bcc_full.any? ? bcc_full.first["Email"] : to
     end
 
     def bcc_name
-      source["BccFull"]["Name"] || bcc
+      bcc_full.any? ? bcc_full.first["Name"] : to
     end
 
     def cc
@@ -61,11 +61,11 @@ module Postmark
     end
 
     def cc_email
-      source["CcFull"]["Email"] || cc
+      cc_full.any? ? cc_full.first["Email"] : to
     end
 
     def cc_name
-      source["CcFull"]["Name"] || cc
+      cc_full.any? ? cc_full.first["Name"] : to
     end
 
     def reply_to
