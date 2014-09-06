@@ -18,6 +18,10 @@ module Postmark
     def from
       source["From"].gsub('"', '')
     end
+    
+    def from_full
+      source["FromFull"] || []
+    end
 
     def from_email
       source["FromFull"]["Email"] || from
