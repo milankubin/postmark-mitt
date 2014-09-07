@@ -20,7 +20,7 @@ module Postmark
     end
     
     def from_full
-      source["FromFull"] || []
+      source["FromFull"]
     end
 
     def from_email
@@ -109,7 +109,8 @@ module Postmark
     end
 
     def headers
-      @headers ||= source["Headers"].inject({}){|hash,obj| hash[obj["Name"]] = obj["Value"]; hash}
+      # @headers ||= source["Headers"].inject({}){|hash,obj| hash[obj["Name"]] = obj["Value"]; hash}
+      source["Headers"] || []
     end
 
     def message_id
