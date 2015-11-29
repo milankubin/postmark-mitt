@@ -2,7 +2,7 @@ module Postmark
   class Mitt
     def initialize(json)
       @raw = json
-      @source = Yajl::Parser.parse(json)
+      @source = ::Yajl::Parser.parse(json)
     end
 
     attr_reader :raw, :source
