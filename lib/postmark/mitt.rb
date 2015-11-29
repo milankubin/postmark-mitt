@@ -2,7 +2,7 @@ module Postmark
   class Mitt
     def initialize(json)
       @raw = json
-      @source = MultiJson.decode(json)
+      @source = Yajl::Parser.parse(json)
     end
 
     attr_reader :raw, :source
@@ -97,7 +97,7 @@ module Postmark
     end
 
     def mailbox_hash
-      source["MailboxHash"]
+      source["MailboxHash"] || nil
     end
 
     def tag
