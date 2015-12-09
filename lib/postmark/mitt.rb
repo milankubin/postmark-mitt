@@ -1,7 +1,7 @@
 module Postmark
   class Mitt
     def initialize(json)
-      @raw = ::StreamIO.new(json)
+      @raw = ::StringIO.new(json)
       @source = ::Yajl::Stream.parse(json)
     end
 
